@@ -10,7 +10,6 @@ which git > /dev/null 2>&1 || yes | pkg install -y git
 which rsync > /dev/null 2>&1 || yes | pkg install -y rsync
 which sshd > /dev/null 2>&1 || yes | pkg install -y openssh
 which tor > /dev/null 2>&1 || yes | pkg install -y tor
-which ipfs > /dev/null 2>&1 || yes | pkg install -y ipfs
 
 if [ -n "$GITHUB_USERS" ]; then
 
@@ -29,11 +28,11 @@ if [ -n "$GITHUB_USERS" ]; then
 
 fi
 
-if [ ! -d "$HOME/termux-tor-ssh" ]; then
-  git clone https://github.com/ianblenke/termux-tor-ssh $HOME/termux-tor-ssh
+if [ ! -d "$HOME/polytope" ]; then
+  git clone https://github.com/cam0sum/polytope $HOME/polytope
 fi
 
-cd $HOME/termux-tor-ssh
+cd $HOME/polytope
 git pull
 rsync -SHPaxq .bash_profile $HOME/.bash_profile
 rsync -SHPaxq .sv/ $HOME/.sv
