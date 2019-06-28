@@ -45,3 +45,24 @@ If MacOS systems, use the following format instead:
 
     ssh myphone
 
+
+Overall Strategy:
+
+Bootstrap
+- id/auth (keys, account) for human & compute
+    - ssb
+    - requires master account
+    - requires registry function
+- all as code
+    - git-ssb
+- mobile CI/CD pipeline
+    - gitlab on arm64 (Pixel)
+    - runners on:
+        - arm64 (oneplus)
+        - arm7 (samsung 7, redmi 4)
+- ops options
+    - termux-compliant (user-space, chroots, etc)
+        - need crypto incentive framework
+            - existing generic "plug in" frameworks?
+            - bashify
+    - container-based: akash.network
