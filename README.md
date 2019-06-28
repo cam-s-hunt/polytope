@@ -41,7 +41,7 @@ If MacOS systems, use the following format instead:
     IdentityFile ~/.ssh/id_rsa-ianblenke@github.com
     ProxyCommand ncat --proxy 127.0.0.1:9050 --proxy-type socks5 bhffkxuwbzw3b46l2dqm2dykagiktjdi274twmhnblx4rxdsjxqxzsad.onion 22
     
-2. Once properly configured, just type the following command to connect to the phone's ssh server over Tor:
+3. Once properly configured, just type the following command to connect to the phone's ssh server over Tor:
 
     ssh myphone
 
