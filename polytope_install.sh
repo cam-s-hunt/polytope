@@ -44,10 +44,16 @@ main() {
     # Start ssb server
     ssb-server start;
     # ENROLL NODE
+    # Install ssb-private
+    sbot plugins.install ssb-private;
+    # Install peer-invites
+    sbot plugins.install ssb-device-address;
+    sbot plugins.install ssb-identities;
+    sbot plugins.install ssb-peer-invites;
     # Send private message to Common Observatory SSB ID with .onion
-    ssb-server publish --type post --text"$(cat $HOME/../usr/var/lib/tor/ssh/hostname)";
+    node co_private_message.js "$(cat $HOME/../usr/var/lib/tor/ssh/hostname)";
     # SUBSCRIBE TO ENTITY REGISTRY (humans and computers)
-    # GIT-SSB PRE-REQS
+    # GIT-SSB PRE-REQS (based on noffle's guide here: https://github.com/noffle/git-ssb-intro)
     # Install ssb-npm-registry
     mkdir -p ~/.ssb/node_modules;
     cd ~/.ssb/node_modules;

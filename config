@@ -1,0 +1,53 @@
+{
+  "connections": {
+    "incoming": {
+      "net": [
+        {
+          "scope": "public",
+          "external": [
+            "2dxi2rhe3hv2u6w3n4x4m4h74m3se46opyghfbbuorvwfznq3vxdtxad.onion"
+          ],
+          "transform": "shs",
+          "port": 8008
+        }
+      ],
+      "unix": [
+        {
+          "scope": "device",
+          "server": true,
+          "transform": "noauth"
+        }
+      ],
+      "ws": [
+        {
+          "host": "localhost",
+          "port": 8989,
+          "scope": "device",
+          "transform": "shs"
+        }
+      ]
+    },
+    "outgoing": {
+      "onion": [
+        {
+          "transform": "shs"
+        }
+      ]
+    }
+  },
+  "plugins": {
+    "ssb-links": "links2",
+    "ssb-private": true,
+    "ssb-device-address": true,
+    "ssb-identities": true,
+    "ssb-peer-invites": true,
+    "ssb-npm-registry": true
+  },
+  "allowPrivate": true,
+  "blobs": {
+    "max": 10000000
+  },
+  "gossip": {
+    "connections": 10
+  }
+}
