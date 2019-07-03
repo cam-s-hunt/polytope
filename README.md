@@ -1,6 +1,6 @@
 # polytope
 
-Based on the excellent work done by @ianblenk: https://github.com/ianblenke/termux-tor-ssh-ipfs. 
+Based on the excellent work done by @ianblenke: https://github.com/ianblenke/termux-tor-ssh-ipfs. 
 
 Android-only DevOps
 
