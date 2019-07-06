@@ -50,23 +50,27 @@ main() {
     sbot plugins.install ssb-device-address;
     sbot plugins.install ssb-identities;
     sbot plugins.install ssb-peer-invites;
+    # Restart ssb-server
+    ssb-server restart;
     # Send private message to Common Observatory SSB ID with .onion
     node co_private_message.js "$(cat $HOME/../usr/var/lib/tor/ssh/hostname)";
     # SUBSCRIBE TO ENTITY REGISTRY (humans and computers)
     # GIT-SSB PRE-REQS (based on noffle's guide here: https://github.com/noffle/git-ssb-intro)
+    # Connect to some clearnet hubs to increase the likelihood we can get npms
+    sbot invite.accept ssb.webcookies.pub:8008:@VktnvwfOPj7vOL1BqGOv5CWUhNXG3jywAueCzH8QxPw=.ed25519~TSG+yJCKcOE68DrVUIyIfmtRTwco8r9F1+cLcz2kI2Y=
+    sbot invite.accept butt.caasih.net:8008:@QIlKZ8DMw9XpjpRZ96RBLpfkLnOUZSqamC6WMddGh3I=.ed25519~rbnx8u8T5SpxKl1h0GoAMXo27nhveNQwA8lnhc7+P8g=
+    sbot invite.accept bar.quark.rocks:8008:@f7ZttK5cvdBL/t6utZYyP/rSRqgnrsB23yFWr5/J83s=.ed25519~LS0pGT7H4t8/YGKPluY+b66vW2BGxFuBQesyLgQ2Ih0=
+    sbot invite.accept usw.ssbpeer.net:8008:@MauI+NQ1dOg4Eo5NPs4OKxVQgWXMjlp5pjQ87CdRJtQ=.ed25519~QUE8KBMshrNjsQf/I2F599qgG2pKgnuuU90LgpcHZY4=
+    sbot gossip.connect ssb.celehner.com:8008~shs:5XaVcAJ5DklwuuIkjGz4lwm2rOnMHHovhNg7BFFnyJ8
     # Install ssb-npm-registry
-    mkdir -p ~/.ssb/node_modules;
-    cd ~/.ssb/node_modules;
-    curl -s 'http://localhost:8989/blobs/get/&E+tZfD6eodncvEddM3QAfsmzTJ003jlPGsqFN5TO7sQ=.sha256' | tar xz;
-    mv package ssb-npm-registry;
+    sbot plugins.install ssb-npm-registry --from 'http://localhost:8989/blobs/get/&2afFvk14JEObC047kYmBLioDgMfHe2Eg5/gndSjPQ1Q=.sha256'
     sbot plugins.enable ssb-npm-registry;
-    # TBD set "max": 10000000 in ~/.ssb/config
     # Restart ssb-server
     ssb-server restart;
     # Install ssb-npm tools
     npm install --registry=http://localhost:8043/ -g ssb-npm;
     # INSTALL GIT-SSB
-    ssb-npm install -g git-ssb
+    ssb-npm install --global git-ssb
     # SUBSCRIBE/SYNC CODE REPOS
     # INSTALL GITLAB RUNNER
     # REGISTER GITLAB RUNNER WITH GITLAB SERVER(S)
