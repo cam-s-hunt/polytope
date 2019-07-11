@@ -34,7 +34,7 @@ main() {
     #git clone https://github.com/MFDGaming/ubuntu-in-termux.git;
     #cd ubuntu-in-termux;
     #chmod +x ubuntu.sh;
-    #./ubuntu.sh;
+    ./ubuntu.sh;
     ./start.sh <<EOF
     #cp ~/ubuntu-in-termux/resolv.conf ~/ubuntu-in-termux/ubuntu-fs/etc/;
     # Attempt to install ssb in Ubuntu
