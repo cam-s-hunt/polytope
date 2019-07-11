@@ -38,6 +38,7 @@ main() {
     cp ~/ubuntu-in-termux/resolv.conf ~/ubuntu-in-termux/ubuntu-fs/etc/;
     ./start.sh <<EOF
     # Attempt to install ssb in Ubuntu
+    apt update && apt upgrade -y;
     apt install nodejs;
     apt install npm;
     npm install --global ssb-server;
