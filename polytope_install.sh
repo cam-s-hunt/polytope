@@ -31,7 +31,6 @@ main() {
     # Install ubuntu
     apt-get update && apt-get upgrade -y;
     apt-get install wget proot git -y;
-    cd $HOME/polytope;
     git clone https://github.com/MFDGaming/ubuntu-in-termux.git;
     cd ubuntu-in-termux;
     chmod +x ubuntu.sh;
