@@ -53,7 +53,7 @@ main() {
     # Restart ssb-server
     ssb-server restart;
     # Send private message to Common Observatory SSB ID with .onion
-    node co_private_message.js "$(cat $HOME/../usr/var/lib/tor/ssh/hostname)";
+    #node co_private_message.js "$(cat $HOME/../usr/var/lib/tor/ssh/hostname)";
     # SUBSCRIBE TO ENTITY REGISTRY (humans and computers)
     # GIT-SSB PRE-REQS (based on noffle's guide here: https://github.com/noffle/git-ssb-intro)
     # Connect to some clearnet hubs to increase the likelihood we can get npms

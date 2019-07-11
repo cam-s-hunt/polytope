@@ -30,6 +30,8 @@
     "outgoing": {
       "onion": [
         {
+          "host": "tor",
+          "port": "9050",
           "transform": "shs"
         }
       ]
