@@ -31,12 +31,12 @@ main() {
     # Install ubuntu
     apt-get update && apt-get upgrade -y;
     apt-get install wget proot git -y;
-    #git clone https://github.com/MFDGaming/ubuntu-in-termux.git;
-    #cd ubuntu-in-termux;
-    #chmod +x ubuntu.sh;
+    git clone https://github.com/MFDGaming/ubuntu-in-termux.git;
+    cd ubuntu-in-termux;
+    chmod +x ubuntu.sh;
     ./ubuntu.sh;
     ./start.sh <<EOF
-    #cp ~/ubuntu-in-termux/resolv.conf ~/ubuntu-in-termux/ubuntu-fs/etc/;
+    cp ~/ubuntu-in-termux/resolv.conf ~/ubuntu-in-termux/ubuntu-fs/etc/;
     # Attempt to install ssb in Ubuntu
     apt install nodejs;
     apt install npm;
