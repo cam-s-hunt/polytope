@@ -70,11 +70,11 @@ main() {
     # Install ssb-npm tools
     npm install --registry=http://localhost:8043/ -g ssb-npm;
     # INSTALL GIT-SSB
-    ssb-npm install --global git-ssb
+    ssb-npm install --global git-ssb;
     # SUBSCRIBE/SYNC CODE REPOS
     # INSTALL GITLAB RUNNER
     # REGISTER GITLAB RUNNER WITH GITLAB SERVER(S)
-    EOF
+EOF
 
 }
 
