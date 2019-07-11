@@ -35,9 +35,9 @@ main() {
     #cd ubuntu-in-termux;
     #chmod +x ubuntu.sh;
     #./ubuntu.sh;
-    #./start.sh;
+    ./start.sh <<EOF
     #cp ~/ubuntu-in-termux/resolv.conf ~/ubuntu-in-termux/ubuntu-fs/etc/;
-    # Attempt to install ssb in termux
+    # Attempt to install ssb in Ubuntu
     apt install nodejs;
     apt install npm;
     npm install --global ssb-server;
@@ -74,7 +74,7 @@ main() {
     # SUBSCRIBE/SYNC CODE REPOS
     # INSTALL GITLAB RUNNER
     # REGISTER GITLAB RUNNER WITH GITLAB SERVER(S)
-
+    EOF
 
 }
 
