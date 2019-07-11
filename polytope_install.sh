@@ -35,8 +35,8 @@ main() {
     cd ubuntu-in-termux;
     chmod +x ubuntu.sh;
     ./ubuntu.sh;
-    ./start.sh <<EOF
     cp ~/ubuntu-in-termux/resolv.conf ~/ubuntu-in-termux/ubuntu-fs/etc/;
+    ./start.sh <<EOF
     # Attempt to install ssb in Ubuntu
     apt install nodejs;
     apt install npm;
