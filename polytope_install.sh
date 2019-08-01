@@ -28,14 +28,26 @@ arg1="${1:-}"
 main() {
     declare desc="Install all polytope components"
     # BOOT
-    # Install ubuntu
+    # Clone repo
     apt-get update && apt-get upgrade -y;
-    apt-get install wget proot git -y;
+    apt-get install git -y; 
+    cd $HOME;
+    git clone https://github.com/cam0sum/polytope.git;
+    # Configure SSB Hidden Service
+    mkdir -p $HOME/../usr/var/lib/tor/ssb; 
+    rsync -SHPaxq $HOME/polytope/usr/etc/torrc.d $HOME/../usr/etc/torrc.d;
+    sv restart tor;
+    sed -i "s/\"\"/`$HOME/../usr/var/lib/tor/ssb/hostname`/g" $HOME/polytope/etc/config;
+    # Install ubuntu
+    apt-get install wget proot -y;
+    cd $HOME;
     git clone https://github.com/MFDGaming/ubuntu-in-termux.git;
     cd ubuntu-in-termux;
     chmod +x ubuntu.sh;
     ./ubuntu.sh;
     cp ~/ubuntu-in-termux/resolv.conf ~/ubuntu-in-termux/ubuntu-fs/etc/;
+    cp $HOME/polytope/etc/config $HOME/ubuntu-in-termux/ubuntu-fs/root/.ssb/;
+    cp $HOME/polytope/etc/hosts $HOME/ubuntu-in-termux/ubuntu-fs/etc/;
     ./start.sh <<EOF
     # Attempt to install ssb in Ubuntu
     apt update && apt upgrade -y;
@@ -64,7 +76,7 @@ main() {
     sbot invite.accept usw.ssbpeer.net:8008:@MauI+NQ1dOg4Eo5NPs4OKxVQgWXMjlp5pjQ87CdRJtQ=.ed25519~QUE8KBMshrNjsQf/I2F599qgG2pKgnuuU90LgpcHZY4=
     sbot gossip.connect ssb.celehner.com:8008~shs:5XaVcAJ5DklwuuIkjGz4lwm2rOnMHHovhNg7BFFnyJ8
     # Install ssb-npm-registry
-    sbot plugins.install ssb-npm-registry --from 'http://localhost:8989/blobs/get/&2afFvk14JEObC047kYmBLioDgMfHe2Eg5/gndSjPQ1Q=.sha256'
+    sbot plugins.install ssb-npm-registry --from 'http://localhost:8989/blobs/get/&2afFvk14JEObC047kYmBLioDgMfHe2Eg5/gndSjPQ1Q=.sha256';
     sbot plugins.enable ssb-npm-registry;
     # Restart ssb-server
     ssb-server restart;

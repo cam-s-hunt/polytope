@@ -5,7 +5,7 @@
         {
           "scope": "public",
           "external": [
-            "2dxi2rhe3hv2u6w3n4x4m4h74m3se46opyghfbbuorvwfznq3vxdtxad.onion"
+            b
           ],
           "transform": "shs",
           "port": 8008
