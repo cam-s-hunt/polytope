@@ -43,6 +43,7 @@ main() {
     cd $HOME;
     git clone https://github.com/MFDGaming/ubuntu-in-termux.git;
     mkdir -p $HOME/ubuntu-in-termux/ubuntu-fs/root/.ssb/;
+    mkdir -p $HOME/ubuntu-in-termux/ubuntu-fs/etc/;
     cd ubuntu-in-termux;
     chmod +x ubuntu.sh;
     ./ubuntu.sh;
