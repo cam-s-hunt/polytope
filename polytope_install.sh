@@ -53,6 +53,7 @@ main() {
     # Attempt to install ssb in Ubuntu
     apt update && apt upgrade -y;
     apt install nodejs npm -y;
+    npm install npm -g;
     npm install --global ssb-server;
     # Start ssb server
     ssb-server start;

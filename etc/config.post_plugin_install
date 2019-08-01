@@ -38,6 +38,12 @@
     }
   },
   "plugins": {
+    "ssb-links": "links2",
+    "ssb-private": true,
+    "ssb-device-address": true,
+    "ssb-identities": true,
+    "ssb-peer-invites": true,
+    "ssb-npm-registry": true
   },
   "allowPrivate": true,
   "blobs": {
