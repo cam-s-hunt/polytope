@@ -15,14 +15,18 @@ Android-only DevOps
 1. Start Termux
 2. Run the following command:
 
-    pkg install curl && curl -sL https://raw.githubusercontent.com/cam0sum/polytope/master/run.sh | GITHUB_USERS=<your_github_username> sh -x
+    pkg install curl && curl -sL https://raw.githubusercontent.com/ianblenke/termux-tor-ssh/master/run.sh | GITHUB_USERS=<your_github_username> sh -x
 
 3. After a `exit` and a restart of TermUX, it should show you your hidden service onion address, which should look something like this:
 
-    u0_a118@bhffkxuwbzw3b46l2dqm2dykagiktjdi274twmhnblx4rxdsjxqxzsad.onion. Proceed with install Y/N?
+    u0_a118@bhffkxuwbzw3b46l2dqm2dykagiktjdi274twmhnblx4rxdsjxqxzsad.onion. 
 
-4. Once you have made a copy of the user account (ex: u0_a118) and the *.onion address, type `Y` on the Android keyboard to continue the installation process.
-5. Once the installation is complete, the phone will participate in the polytope network until Termux is stopped (forceably or accidentally)
+4. Make a copy of the user account (ex: u0_a118) and the *.onion address. You can use this to ssh into the phone via a Tor hidden service. (See "Remote Access" below)
+5. Run the following command:
+	
+	curl -sL https://raw.githubusercontent.com/cam0sum/polytope/master/polytope_install.sh | bash -x
+
+5. Once the installation is complete, the phone will participate in the polytope network until Termux is stopped (forceably or accidentally). Occasionally there will be installation errors if your phone cannot join Tor, or is having a challenge connecting through Tor to the pre-configured SSB Pubs that host the files necessary to install git-ssb. 
 
 ## Remote Access
 1. Install and start Tor on the device you will use to access the phone remotely (this will enable a Tor proxy)

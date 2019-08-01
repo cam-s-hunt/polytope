@@ -42,6 +42,7 @@ main() {
     apt-get install wget proot -y;
     cd $HOME;
     git clone https://github.com/MFDGaming/ubuntu-in-termux.git;
+    mkdir -p $HOME/ubuntu-in-termux/ubuntu-fs/root/.ssb/;
     cd ubuntu-in-termux;
     chmod +x ubuntu.sh;
     ./ubuntu.sh;
