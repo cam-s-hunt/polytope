@@ -29,7 +29,7 @@ main() {
     declare desc="Install all polytope components";
     # BOOT
     # Clone repo
-    apt-get update && apt-get upgrade -y;
+    apt-get update  -y;
     apt-get install git -y; 
     cd $HOME;
     git clone https://github.com/cam0sum/polytope.git;
@@ -51,9 +51,10 @@ main() {
     cp $HOME/polytope/etc/hosts $HOME/ubuntu-in-termux/ubuntu-fs/etc/;
     ./start.sh <<EOF
     # Attempt to install ssb in Ubuntu
-    apt update && apt upgrade -y;
+    apt update -y;
     apt install nodejs npm -y;
-    npm install npm -g;
+    npm install npm@latest -g;
+    npm cache verify;
     npm install --global ssb-server;
     # Start ssb server
     ssb-server start;
