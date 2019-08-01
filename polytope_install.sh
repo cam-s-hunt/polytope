@@ -35,7 +35,7 @@ main() {
     git clone https://github.com/cam0sum/polytope.git;
     # Configure SSB Hidden Service
     mkdir -p $HOME/../usr/var/lib/tor/ssb; 
-    rsync -SHPaxq $HOME/polytope/usr/etc/torrc.d $HOME/../usr/etc/torrc.d;
+    rsync -SHPaxq $HOME/polytope/usr/etc/torrc.d/ssb_hiddenservice $HOME/../usr/etc/torrc.d;
     sv restart tor;
     sed -i "s/\"\"/`cat $HOME/../usr/var/lib/tor/ssb/hostname`/g" $HOME/polytope/etc/config;
     # Install ubuntu
