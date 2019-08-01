@@ -42,18 +42,17 @@ main() {
     apt-get install wget proot -y;
     cd $HOME;
     git clone https://github.com/MFDGaming/ubuntu-in-termux.git;
-    #mkdir -p $HOME/ubuntu-in-termux/ubuntu-fs/root/.ssb/;
     cd ubuntu-in-termux;
     chmod +x ubuntu.sh;
     ./ubuntu.sh;
     cp ~/ubuntu-in-termux/resolv.conf ~/ubuntu-in-termux/ubuntu-fs/etc/;
-    #cp $HOME/polytope/etc/config $HOME/ubuntu-in-termux/ubuntu-fs/root/.ssb/;
-    #cp $HOME/polytope/etc/hosts $HOME/ubuntu-in-termux/ubuntu-fs/etc/;
+    mkdir -p $HOME/ubuntu-in-termux/ubuntu-fs/root/.ssb/;
+    cp $HOME/polytope/etc/config $HOME/ubuntu-in-termux/ubuntu-fs/root/.ssb/;
+    cp $HOME/polytope/etc/hosts $HOME/ubuntu-in-termux/ubuntu-fs/etc/;
     ./start.sh <<EOF
     # Attempt to install ssb in Ubuntu
     apt update && apt upgrade -y;
-    apt install nodejs;
-    apt install npm;
+    apt install nodejs npm -y;
     npm install --global ssb-server;
     # Start ssb server
     ssb-server start;
