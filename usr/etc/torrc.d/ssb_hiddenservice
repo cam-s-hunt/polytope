@@ -1,6 +1,7 @@
 HiddenServiceDir /data/data/com.termux/files/usr/var/lib/tor/ssb/
 HiddenServiceVersion 3
-HiddenServicePort 8008 127.0.0.1:8008
+HiddenServicePort 8008 127.0.0.1:8010
+HiddenServicePort 8807 127.0.0.1:8007
 
 SafeLogging 0
 Log notice stdout

@@ -37,7 +37,7 @@ main() {
     mkdir -p $HOME/../usr/var/lib/tor/ssb; 
     rsync -SHPaxq $HOME/polytope/usr/etc/torrc.d/ssb_hiddenservice $HOME/../usr/etc/torrc.d;
     sv restart tor;
-    sed -i "s/\"\"/`cat $HOME/../usr/var/lib/tor/ssb/hostname`/g" $HOME/polytope/etc/config;
+    sed -i "s/\"\"/\"`cat $HOME/../usr/var/lib/tor/ssb/hostname`\"/g" $HOME/polytope/etc/config;
     # Install ubuntu
     apt-get install wget proot -y;
     cd $HOME;
